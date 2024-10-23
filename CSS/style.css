@@ -10,12 +10,36 @@ body {
   color: #333;
 }
 
+.logo-itb {
+  height: 50px; 
+  width: auto;  
+  margin-right: 10px; 
+  margin-left: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.kampus-merdeka {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.nama-ITB {
+  color:black;
+  font-weight: 30px;
+}
+
 header {
   background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
-  padding: 20px 0;
+  padding: 25px 0;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 25px;
 }
 
 h1 {
@@ -43,7 +67,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ffeb3b;
+  color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
 }
 
