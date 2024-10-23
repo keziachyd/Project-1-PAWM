@@ -1,4 +1,3 @@
-// Kalkulator Turunan
 function calculateDerivative() {
   let input = document.getElementById("inputFunction").value;
   try {
@@ -9,20 +8,16 @@ function calculateDerivative() {
   }
 }
 
-// Kalkulator Integral
-// Fungsi untuk menghitung integral numerik dengan metode Trapezoid
 function calculateIntegral() {
-  let input = document.getElementById("inputIntegral").value; // Ekspresi fungsi
-  let a = parseFloat(document.getElementById("a").value); // Batas bawah
-  let b = parseFloat(document.getElementById("b").value); // Batas atas
-  let n = 1000; // Jumlah interval (semakin besar, semakin akurat)
-  let h = (b - a) / n; // Lebar interval
+  let input = document.getElementById("inputIntegral").value;
+  let a = parseFloat(document.getElementById("a").value); 
+  let b = parseFloat(document.getElementById("b").value); 
+  let n = 1000;
+  let h = (b -a) / n;
 
   try {
-      // Definisikan fungsi menggunakan math.js
       let f = math.compile(input);
 
-      // Hitung integral menggunakan metode Trapezoid
       let integral = 0;
       for (let i = 0; i <= n; i++) {
           let x_i = a + i * h;
@@ -38,7 +33,6 @@ function calculateIntegral() {
 }
 
 
-// Grafik Trigonometri (sin, cos)
 function plotTrigonometry() {
   var xValues = [];
   var sinValues = [];
@@ -70,7 +64,6 @@ function plotTrigonometry() {
   Plotly.newPlot('graphTrigonometry', data);
 }
 
-// Simulasi Fungsi Linear y = mx + c
 function updateLinearGraph() {
   let m = parseFloat(document.getElementById("m").value);
   let c = parseFloat(document.getElementById("c").value);
@@ -97,6 +90,5 @@ function updateLinearGraph() {
   Plotly.newPlot('graphLinear', data);
 }
 
-// Jalankan fungsi grafik saat halaman dibuka
 plotTrigonometry();
 updateLinearGraph();
