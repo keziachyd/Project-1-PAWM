@@ -108,7 +108,7 @@ const firebaseConfig = {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
   
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().bbbEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("Login berhasil!");
         loadProgress();
@@ -117,7 +117,6 @@ const firebaseConfig = {
         alert("Login gagal: " + error.message);
       });
   }
-  
   
   function logout() {
     firebase.auth().signOut().then(() => {
