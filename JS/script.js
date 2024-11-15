@@ -92,3 +92,59 @@ function updateLinearGraph() {
 
 plotTrigonometry();
 updateLinearGraph();
+
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  
+  function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+  
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Login berhasil!");
+        loadProgress();
+      })
+      .catch((error) => {
+        alert("Login gagal: " + error.message);
+      });
+  }
+  
+  
+  function logout() {
+    firebase.auth().signOut().then(() => {
+      alert("Logout berhasil!");
+      document.getElementById("userProgress").innerHTML = ""; // Hapus progress
+    }).catch((error) => {
+      alert("Logout gagal: " + error.message);
+    });
+  }
+  
+  function loadProgress() {
+    const user = firebase.auth().currentUser;
+  
+    if (user) {
+      const progressRef = firebase.firestore().collection("progress").doc(user.uid);
+  
+      progressRef.get().then((doc) => {
+        if (doc.exists) {
+          const progressData = doc.data().progress;
+          const progressList = document.getElementById("userProgress");
+          progressList.innerHTML = progressData.map((item) => `<li>${item}</li>`).join("");
+        } else {
+          alert("Belum ada progress yang disimpan!");
+        }
+      }).catch((error) => {
+        alert("Gagal memuat progress: " + error.message);
+      });
+    }
+  }
+  
